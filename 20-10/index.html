@@ -8,9 +8,9 @@
   <style>
     :root{--bg:#0f172a;--card:#0b1220;--accent:#ff5ca1;--muted:#9aa4b2}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#071028 0%,#0b1220 100%);color:#fff;min-height:100vh;padding:10px 5px;overflow-y:auto}
+    body{margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#071028 0%,#0b1220 100%);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:10px 5px;overflow-y:auto}
     #cherryBlossom{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
-    .wrap{width:100%;max-width:600px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));border-radius:12px;padding:15px;box-shadow:0 4px 15px rgba(2,6,23,0.7);position:relative;opacity:0;visibility:hidden;transition:opacity 1s ease;z-index:1}
+    .wrap{width:100%;max-width:600px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));border-radius:12px;padding:15px;box-shadow:0 4px 15px rgba(2,6,23,0.7);position:relative;height:auto;opacity:0;visibility:hidden;transition:opacity 1s ease;z-index:1}
     header{display:flex;gap:12px;align-items:center;position:relative}
     .logo{width:60px;height:60px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .logo img{width:100%;height:100%;object-fit:cover}
@@ -299,6 +299,8 @@
           intro.classList.add('hidden');
           wrap.style.opacity = '1';
           wrap.style.visibility = 'visible';
+          // Đảm bảo body không bị cố định sau intro
+          body.style.alignItems = 'flex-start'; // Cho phép scroll
         }, 200);
       }, 8000);
     }
